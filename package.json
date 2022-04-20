@@ -1,0 +1,25 @@
+{
+  "name": "az-func-ipdb",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "func start",
+    "test": "echo \"No tests yet...\"",
+    "devstorage": "azurite-table",
+    "exampledata": "ENV=DEV node ./example-data/createExampleData.mjs"
+  },
+  "dependencies": {
+    "@azure/data-tables": "^13.0.1",
+    "dotenv": "^16.0.0",
+    "is-cidr": "^4.0.2",
+    "is-ip": "^4.0.0"
+  },
+  "devDependencies": {
+    "@babel/eslint-parser": "^7.17.0",
+    "@babel/plugin-syntax-top-level-await": "^7.14.5",
+    "eslint": "^8.12.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.25.4",
+    "prettier": "^2.6.1"
+  }
+}

@@ -1,0 +1,784 @@
+{
+	"info": {
+		"_postman_id": "2d0a29dc-6f09-4c75-92e2-51468df97076",
+		"name": "az-func-ipdb",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "ipdb",
+			"item": [
+				{
+					"name": "get all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{url}}/ipdb",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ipdb"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get all",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://{{url}}/ipdb",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"ipdb"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 09 Apr 2022 16:54:16 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"partitionKey\": \"aaaa\",\n        \"rowKey\": \"06f6887a-4499-4577-a618-289dde8530c8\",\n        \"ip\": \"8.8.8.8\",\n        \"description\": \"fndjkfjkfd\",\n        \"timestamp\": \"2022-04-05T21:21:55.378Z\"\n    },\n    {\n        \"partitionKey\": \"aaaa\",\n        \"rowKey\": \"2319d2f5-a2d1-4e43-8870-6018d1b81bd5\",\n        \"ip\": \"8.8.8.8\",\n        \"description\": \"fndjkfjkfd\",\n        \"timestamp\": \"2022-04-06T19:35:42.647Z\"\n    },\n    {\n        \"partitionKey\": \"aaaa\",\n        \"rowKey\": \"2fc8521c-8f11-44a2-bd58-2a2e2f8ffeb7\",\n        \"ip\": \"1.1.1.1/19\",\n        \"description\": \"aaaa\",\n        \"timestamp\": \"2022-04-09T16:40:05.732Z\"\n    },\n    {\n        \"partitionKey\": \"aaaa\",\n        \"rowKey\": \"3353ff9e-87d5-4361-8bb3-b9ef15260b7c\",\n        \"ip\": \"1.1.1.1/19\",\n        \"description\": \"aaaa\",\n        \"timestamp\": \"2022-04-09T16:40:01.632Z\"\n    },\n    {\n        \"partitionKey\": \"aaaa\",\n        \"rowKey\": \"4eca35db-d3b3-4c3a-b9ca-e402c9def514\",\n        \"ip\": \"8.8.8.8\",\n        \"description\": \"fndjkfjkfd\",\n        \"timestamp\": \"2022-04-06T19:35:39.830Z\"\n    },\n    {\n        \"partitionKey\": \"aaaa\",\n        \"rowKey\": \"7adffcc6-cc26-423f-9d6e-46b734e580af\",\n        \"ip\": \"8.8.8.8\",\n        \"description\": \"fndjkfjkfd\",\n        \"timestamp\": \"2022-04-05T20:11:48.331Z\"\n    },\n    {\n        \"partitionKey\": \"aaaa\",\n        \"rowKey\": \"7f3e8e47-fc03-4c70-be8e-d57f470ab770\",\n        \"ip\": \"1.1.1.1/19\",\n        \"description\": \"aaaa\",\n        \"timestamp\": \"2022-04-09T16:40:03.950Z\"\n    },\n    {\n        \"partitionKey\": \"aaaa\",\n        \"rowKey\": \"98a33406-45c4-46ff-8417-4c89213cc7da\",\n        \"ip\": \"1.1.1.1/19\",\n        \"description\": \"aaaa\",\n        \"timestamp\": \"2022-04-09T08:47:17.575Z\"\n    },\n    {\n        \"partitionKey\": \"aaaa\",\n        \"rowKey\": \"ec071e11-a48a-4ce4-ad11-9558f853215d\",\n        \"ip\": \"8.8.8.8\",\n        \"description\": \"fndjkfjkfd\",\n        \"timestamp\": \"2022-04-06T19:35:41.426Z\"\n    },\n    {\n        \"partitionKey\": \"aaaa\",\n        \"rowKey\": \"f4561be3-4eb6-44a9-8f4d-eddb9f4084b5\",\n        \"ip\": \"8.8.8.8\",\n        \"description\": \"fndjkfjkfd\",\n        \"timestamp\": \"2022-04-06T19:35:43.639Z\"\n    },\n    {\n        \"partitionKey\": \"azure\",\n        \"rowKey\": \"0306aea0-8357-4d3f-bd32-7668fd5a511a\",\n        \"ip\": \"137.116.2.0/25\",\n        \"description\": \"azure storage ips\",\n        \"timestamp\": \"2022-04-02T17:36:33.069Z\"\n    },\n    {\n        \"partitionKey\": \"azure\",\n        \"rowKey\": \"10f718ad-503b-45c0-82fe-0f2fe3db8cfe\",\n        \"ip\": \"23.98.49.0/26\",\n        \"description\": \"azure storage ips\",\n        \"timestamp\": \"2022-04-02T17:36:33.065Z\"\n    },\n    {\n        \"partitionKey\": \"azure\",\n        \"rowKey\": \"3129a461-96eb-4c37-996f-80360a90ed64\",\n        \"ip\": \"20.60.0.0/16\",\n        \"description\": \"azure storage ips\",\n        \"timestamp\": \"2022-04-02T17:36:33.064Z\"\n    },\n    {\n        \"partitionKey\": \"azure\",\n        \"rowKey\": \"445ca7fd-af39-454e-8ba2-f0d78af90b4a\",\n        \"ip\": \"13.65.107.32/28\",\n        \"description\": \"azure storage ips\",\n        \"timestamp\": \"2022-04-02T17:36:33.060Z\"\n    },\n    {\n        \"partitionKey\": \"azure\",\n        \"rowKey\": \"68961265-5907-4720-9b2d-a088ca6c6020\",\n        \"ip\": \"52.165.104.64/27\",\n        \"description\": \"azure storage ips\",\n        \"timestamp\": \"2022-04-02T17:36:33.067Z\"\n    },\n    {\n        \"partitionKey\": \"azure\",\n        \"rowKey\": \"be4342b9-e600-40fd-82ed-22769d6436e5\",\n        \"ip\": \"13.65.160.16/28\",\n        \"description\": \"azure storage ips\",\n        \"timestamp\": \"2022-04-02T17:36:33.063Z\"\n    },\n    {\n        \"partitionKey\": \"azure\",\n        \"rowKey\": \"cfbb068d-2920-483a-901a-ee12485a5f65\",\n        \"ip\": \"40.83.225.32/28\",\n        \"description\": \"azure storage ips\",\n        \"timestamp\": \"2022-04-02T17:36:33.066Z\"\n    },\n    {\n        \"partitionKey\": \"cloudflare\",\n        \"rowKey\": \"7add9b59-cfcd-4ead-9e80-0e999795a512\",\n        \"ip\": \"103.22.200.0/22\",\n        \"description\": \"cloudflare ips\",\n        \"timestamp\": \"2022-04-02T17:36:33.051Z\"\n    },\n    {\n        \"partitionKey\": \"cloudflare\",\n        \"rowKey\": \"7cd36353-6b0a-40b5-8b86-10fb96663f2d\",\n        \"ip\": \"104.24.0.0/14\",\n        \"description\": \"cloudflare ips\",\n        \"timestamp\": \"2022-04-02T17:36:33.054Z\"\n    },\n    {\n        \"partitionKey\": \"cloudflare\",\n        \"rowKey\": \"7d58c25d-8b4a-4e5f-8ea8-90985106a918\",\n        \"ip\": \"108.162.192.0/18\",\n        \"description\": \"cloudflare ips\",\n        \"timestamp\": \"2022-04-02T17:36:33.057Z\"\n    },\n    {\n        \"partitionKey\": \"cloudflare\",\n        \"rowKey\": \"9f5e909b-fc7e-4fb4-96bb-c350b753edd4\",\n        \"ip\": \"104.16.0.0/13\",\n        \"description\": \"cloudflare ips\",\n        \"timestamp\": \"2022-04-02T17:36:33.053Z\"\n    },\n    {\n        \"partitionKey\": \"cloudflare\",\n        \"rowKey\": \"a59b85c1-adbb-4e01-8eb2-1bd9f38c90f8\",\n        \"ip\": \"1.1.1.1\",\n        \"description\": \"cloudflare ips\",\n        \"timestamp\": \"2022-04-02T17:36:33.045Z\"\n    },\n    {\n        \"partitionKey\": \"cloudflare\",\n        \"rowKey\": \"ce52c385-d8a3-4053-a56e-bdaa7060e6cc\",\n        \"ip\": \"2400:cb00::/32\",\n        \"description\": \"cloudflare ips\",\n        \"timestamp\": \"2022-04-02T17:36:33.058Z\"\n    },\n    {\n        \"partitionKey\": \"zscaler\",\n        \"rowKey\": \"1b5b583d-777f-4eaf-96ac-0248c330f57c\",\n        \"ip\": \"165.225.26.0/23\",\n        \"description\": \"zscaler ips\",\n        \"timestamp\": \"2022-04-02T17:36:33.076Z\"\n    },\n    {\n        \"partitionKey\": \"zscaler\",\n        \"rowKey\": \"2ce61e83-4725-4ccf-9e94-fe16b4fcb0d0\",\n        \"ip\": \"165.225.72.0/22\",\n        \"description\": \"zscaler ips\",\n        \"timestamp\": \"2022-04-02T17:36:33.070Z\"\n    },\n    {\n        \"partitionKey\": \"zscaler\",\n        \"rowKey\": \"89ddb98e-289d-4b68-963f-46bc812cbefc\",\n        \"ip\": \"147.161.166.0/23\",\n        \"description\": \"zscaler ips\",\n        \"timestamp\": \"2022-04-02T17:36:33.073Z\"\n    },\n    {\n        \"partitionKey\": \"zscaler\",\n        \"rowKey\": \"9ce1806c-691c-4c6d-8a2f-4ec841ff7209\",\n        \"ip\": \"104.129.197.103\",\n        \"description\": \"zscaler ips\",\n        \"timestamp\": \"2022-04-02T17:36:33.079Z\"\n    },\n    {\n        \"partitionKey\": \"zscaler\",\n        \"rowKey\": \"a7436e5c-1996-4be7-8b56-0ea6b9d80e2b\",\n        \"ip\": \"104.129.193.65\",\n        \"description\": \"zscaler ips\",\n        \"timestamp\": \"2022-04-02T17:36:33.078Z\"\n    },\n    {\n        \"partitionKey\": \"zscaler\",\n        \"rowKey\": \"e565c4fd-074d-498b-9b6e-ce69d03a9a7a\",\n        \"ip\": \"165.225.80.0/22\",\n        \"description\": \"zscaler ips\",\n        \"timestamp\": \"2022-04-02T17:36:33.072Z\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "get all in a collection",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{url}}/ipdb/azure",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ipdb",
+								"azure"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get all in a collection",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://{{url}}/ipdb/azure",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"ipdb",
+										"azure"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 09 Apr 2022 16:57:13 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"partitionKey\": \"azure\",\n        \"rowKey\": \"0306aea0-8357-4d3f-bd32-7668fd5a511a\",\n        \"ip\": \"137.116.2.0/25\",\n        \"description\": \"azure storage ips\",\n        \"timestamp\": \"2022-04-02T17:36:33.069Z\"\n    },\n    {\n        \"partitionKey\": \"azure\",\n        \"rowKey\": \"10f718ad-503b-45c0-82fe-0f2fe3db8cfe\",\n        \"ip\": \"23.98.49.0/26\",\n        \"description\": \"azure storage ips\",\n        \"timestamp\": \"2022-04-02T17:36:33.065Z\"\n    },\n    {\n        \"partitionKey\": \"azure\",\n        \"rowKey\": \"3129a461-96eb-4c37-996f-80360a90ed64\",\n        \"ip\": \"20.60.0.0/16\",\n        \"description\": \"azure storage ips\",\n        \"timestamp\": \"2022-04-02T17:36:33.064Z\"\n    },\n    {\n        \"partitionKey\": \"azure\",\n        \"rowKey\": \"445ca7fd-af39-454e-8ba2-f0d78af90b4a\",\n        \"ip\": \"13.65.107.32/28\",\n        \"description\": \"azure storage ips\",\n        \"timestamp\": \"2022-04-02T17:36:33.060Z\"\n    },\n    {\n        \"partitionKey\": \"azure\",\n        \"rowKey\": \"68961265-5907-4720-9b2d-a088ca6c6020\",\n        \"ip\": \"52.165.104.64/27\",\n        \"description\": \"azure storage ips\",\n        \"timestamp\": \"2022-04-02T17:36:33.067Z\"\n    },\n    {\n        \"partitionKey\": \"azure\",\n        \"rowKey\": \"be4342b9-e600-40fd-82ed-22769d6436e5\",\n        \"ip\": \"13.65.160.16/28\",\n        \"description\": \"azure storage ips\",\n        \"timestamp\": \"2022-04-02T17:36:33.063Z\"\n    },\n    {\n        \"partitionKey\": \"azure\",\n        \"rowKey\": \"cfbb068d-2920-483a-901a-ee12485a5f65\",\n        \"ip\": \"40.83.225.32/28\",\n        \"description\": \"azure storage ips\",\n        \"timestamp\": \"2022-04-02T17:36:33.066Z\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "get one entity in a collection",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{url}}/ipdb/azure/3129a461-96eb-4c37-996f-80360a90ed64",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ipdb",
+								"azure",
+								"3129a461-96eb-4c37-996f-80360a90ed64"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get one entity in a collection",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://{{url}}/ipdb/azure/3129a461-96eb-4c37-996f-80360a90ed64",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"ipdb",
+										"azure",
+										"3129a461-96eb-4c37-996f-80360a90ed64"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 09 Apr 2022 16:58:39 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"partitionKey\": \"azure\",\n    \"rowKey\": \"3129a461-96eb-4c37-996f-80360a90ed64\",\n    \"ip\": \"20.60.0.0/16\",\n    \"description\": \"azure storage ips\",\n    \"timestamp\": \"2022-04-02T17:36:33.064Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "insert one entity",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-functions-key",
+								"value": "{{x-functions-key}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ip\": \"1.1.1.1\",\r\n    \"description\": \"cloudflare dns\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{url}}/ipdb/cloudflare",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ipdb",
+								"cloudflare"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "insert one entity",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"ip\": \"1.1.1.1\",\r\n    \"description\": \"cloudflare dns\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{url}}/ipdb/cloudflare",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"ipdb",
+										"cloudflare"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 09 Apr 2022 17:00:05 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"partitionKey\": \"cloudflare\",\n    \"rowKey\": \"10763783-f27b-468e-a76f-8afa6cbe645f\",\n    \"ip\": \"1.1.1.1\",\n    \"description\": \"cloudflare dns\"\n}"
+						}
+					]
+				},
+				{
+					"name": "update one entity",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-functions-key",
+								"value": "{{x-functions-key}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ip\": \"1.0.0.1\",\r\n    \"description\": \"cloudflare dns2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{url}}/ipdb/cloudflare/10763783-f27b-468e-a76f-8afa6cbe645f",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ipdb",
+								"cloudflare",
+								"10763783-f27b-468e-a76f-8afa6cbe645f"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "update one entity",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "x-functions-key",
+										"value": "{{x-functions-key}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"ip\": \"1.0.0.1\",\r\n    \"description\": \"cloudflare dns2\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{url}}/ipdb/cloudflare/10763783-f27b-468e-a76f-8afa6cbe645f",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"ipdb",
+										"cloudflare",
+										"10763783-f27b-468e-a76f-8afa6cbe645f"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 09 Apr 2022 17:03:50 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"partitionKey\": \"cloudflare\",\n    \"rowKey\": \"10763783-f27b-468e-a76f-8afa6cbe645f\",\n    \"ip\": \"1.0.0.1\",\n    \"description\": \"cloudflare dns2\"\n}"
+						}
+					]
+				},
+				{
+					"name": "delete one entity",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-functions-key",
+								"value": "{{x-functions-key}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://{{url}}/ipdb/cloudflare/10763783-f27b-468e-a76f-8afa6cbe645f",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ipdb",
+								"cloudflare",
+								"10763783-f27b-468e-a76f-8afa6cbe645f"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "delete one entity",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "x-functions-key",
+										"value": "{{x-functions-key}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://{{url}}/ipdb/cloudflare/10763783-f27b-468e-a76f-8afa6cbe645f",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"ipdb",
+										"cloudflare",
+										"10763783-f27b-468e-a76f-8afa6cbe645f"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 09 Apr 2022 17:04:48 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"partitionKey\": \"cloudflare\",\n    \"rowKey\": \"10763783-f27b-468e-a76f-8afa6cbe645f\"\n}"
+						}
+					]
+				},
+				{
+					"name": "search",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{url}}/search?q=1.1.1.1",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"search"
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "1.1.1.1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "search",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://{{url}}/search?q=1.1.1.1",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"search"
+									],
+									"query": [
+										{
+											"key": "q",
+											"value": "1.1.1.1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 09 Apr 2022 17:07:08 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"partitionKey\": \"cloudflare\",\n        \"rowKey\": \"a59b85c1-adbb-4e01-8eb2-1bd9f38c90f8\",\n        \"ip\": \"1.1.1.1\",\n        \"description\": \"cloudflare ips\",\n        \"timestamp\": \"2022-04-02T17:36:33.045Z\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "health",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{url}}/health",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"health"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ipfeed",
+			"item": [
+				{
+					"name": "checkpoint ipfeed",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{url}}/ipfeed/checkpoint",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ipfeed",
+								"checkpoint"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "checkpoint ipfeed",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://{{url}}/ipfeed/checkpoint",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"ipfeed",
+										"checkpoint"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 09 Apr 2022 17:09:09 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"version\": \"1.0\",\n    \"description\": \"IPDB IP feed\",\n    \"objects\": [\n        {\n            \"name\": \"aaaa\",\n            \"id\": \"20aafb6d-d19a-543c-8780-9158a221433d\",\n            \"description\": \"aaaa IP feed\",\n            \"ranges\": [\n                \"8.8.8.8\",\n                \"8.8.8.8\",\n                \"1.1.1.1/19\",\n                \"1.1.1.1/19\",\n                \"8.8.8.8\",\n                \"8.8.8.8\",\n                \"1.1.1.1/19\",\n                \"1.1.1.1/19\",\n                \"8.8.8.8\",\n                \"8.8.8.8\"\n            ]\n        },\n        {\n            \"name\": \"azure\",\n            \"id\": \"1a11f140-ee89-5b39-99d5-36632d0ea329\",\n            \"description\": \"azure IP feed\",\n            \"ranges\": [\n                \"137.116.2.0/25\",\n                \"23.98.49.0/26\",\n                \"20.60.0.0/16\",\n                \"13.65.107.32/28\",\n                \"52.165.104.64/27\",\n                \"13.65.160.16/28\",\n                \"40.83.225.32/28\"\n            ]\n        },\n        {\n            \"name\": \"cloudflare\",\n            \"id\": \"d00f05c1-8a74-5570-a23d-68e85c145abd\",\n            \"description\": \"cloudflare IP feed\",\n            \"ranges\": [\n                \"103.22.200.0/22\",\n                \"104.24.0.0/14\",\n                \"108.162.192.0/18\",\n                \"104.16.0.0/13\",\n                \"1.1.1.1\",\n                \"2400:cb00::/32\"\n            ]\n        },\n        {\n            \"name\": \"zscaler\",\n            \"id\": \"b74c48de-085d-5117-b2e0-3b34860acb65\",\n            \"description\": \"zscaler IP feed\",\n            \"ranges\": [\n                \"165.225.26.0/23\",\n                \"165.225.72.0/22\",\n                \"147.161.166.0/23\",\n                \"104.129.197.103\",\n                \"104.129.193.65\",\n                \"165.225.80.0/22\"\n            ]\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "fortigate ipfeed all collections",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{url}}/ipfeed/fortigate",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ipfeed",
+								"fortigate"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "fortigate ipfeed all collections",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://{{url}}/ipfeed/fortigate",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"ipfeed",
+										"fortigate"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 09 Apr 2022 17:09:48 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "8.8.8.8\n8.8.8.8\n1.1.1.1/19\n1.1.1.1/19\n8.8.8.8\n8.8.8.8\n1.1.1.1/19\n1.1.1.1/19\n8.8.8.8\n8.8.8.8\n137.116.2.0/25\n23.98.49.0/26\n20.60.0.0/16\n13.65.107.32/28\n52.165.104.64/27\n13.65.160.16/28\n40.83.225.32/28\n103.22.200.0/22\n104.24.0.0/14\n108.162.192.0/18\n104.16.0.0/13\n1.1.1.1\n2400:cb00::/32\n165.225.26.0/23\n165.225.72.0/22\n147.161.166.0/23\n104.129.197.103\n104.129.193.65\n165.225.80.0/22"
+						}
+					]
+				},
+				{
+					"name": "fortigate ipfeed one collection",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{url}}/ipfeed/fortigate/cloudflare",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ipfeed",
+								"fortigate",
+								"cloudflare"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "fortigate ipfeed one collection",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://{{url}}/ipfeed/fortigate/cloudflare",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"ipfeed",
+										"fortigate",
+										"cloudflare"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 09 Apr 2022 17:10:19 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "103.22.200.0/22\n104.24.0.0/14\n108.162.192.0/18\n104.16.0.0/13\n1.1.1.1\n2400:cb00::/32"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "other",
+			"item": [
+				{
+					"name": "debug",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{url}}/debug",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"debug"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "localhost:7071/api/v1",
+			"type": "string"
+		},
+		{
+			"key": "x-functions-key",
+			"value": "dGgfgsrgrVzdDEyMzQ1Njc4OQ==",
+			"type": "string"
+		}
+	]
+}

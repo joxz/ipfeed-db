@@ -1,0 +1,709 @@
+{
+    "openapi": "3.0.2",
+    "info": {
+        "title": "IP Feeds API Docs",
+        "description": "Azure function to provide IP feeds for Checkpoint (Generic Data Center Object) and Fortigate (Threat feeds) firewalls",
+        "version": "1.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:7071/api/v1",
+            "description": "Local Testing"
+        },
+        {
+            "url": "{protocol}://{functionname}/api/v1",
+            "description": "Azure Deployment",
+            "variables": {
+                "protocol": {
+                    "enum": [
+                        "https",
+                        "http"
+                    ],
+                    "default": "https"
+                },
+                "functionname": {
+                    "default": "functionname.azurewebsites.net"
+                }
+            }
+        }
+    ],
+    "tags": [
+        {
+            "name": "ipdb",
+            "description": "IP database"
+        },
+        {
+            "name": "ipfeed",
+            "description": "IP Feeds for Checkpoint, Fortigate"
+        }
+    ],
+    "paths": {
+        "/ipdb": {
+            "get": {
+                "summary": "Returns a list of IP addresses from all collections",
+                "tags": [
+                    "ipdb"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ipdbresp"
+                                },
+                                "examples": {
+                                    "default": {
+                                        "value": {
+                                            "partitionKey": "cloudflare",
+                                            "rowKey": "0819b54f-bca8-46a4-a838-d6301480f665",
+                                            "timestamp": "2022-04-07T12:18:38.1162658Z",
+                                            "ip": "162.158.0.0/15",
+                                            "description": "cloudflare ips"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/ipdb/{collection}": {
+            "get": {
+                "summary": "Returns a list of IP addresses from one collection {collection} (=partitionKey)",
+                "tags": [
+                    "ipdb"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ipdbresp"
+                                },
+                                "examples": {
+                                    "default": {
+                                        "value": {
+                                            "partitionKey": "cloudflare",
+                                            "rowKey": "0819b54f-bca8-46a4-a838-d6301480f665",
+                                            "timestamp": "2022-04-07T12:18:38.1162658Z",
+                                            "ip": "162.158.0.0/15",
+                                            "description": "cloudflare ips"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "summary": "Create IP address in IP database collection {collection} (=partitionKey)",
+                "security": [
+                    {
+                        "FunctionKeyAuth": []
+                    }
+                ],
+                "tags": [
+                    "ipdb"
+                ],
+                "parameters": [
+                    {
+                        "name": "collection",
+                        "required": true,
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ipdbpostbody"
+                            },
+                            "examples": {
+                                "default": {
+                                    "value": {
+                                        "ip": "1.1.1.1",
+                                        "description": "Cloudflare DNS"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ipdbchangeresp"
+                                },
+                                "examples": {
+                                    "default": {
+                                        "value": {
+                                            "partitionKey": "cloudflare",
+                                            "rowKey": "98a33406-45c4-46ff-8417-4c89213cc7da",
+                                            "ip": "1.1.1.1",
+                                            "description": "Cloudflare DNS"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Entity not found",
+                        "content": {
+                            "application/json": {
+                                "examples": {
+                                    "default": {
+                                        "value": {
+                                            "errorCode": "1337",
+                                            "message": "Entity not found"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/ipdb/{collection}/{uuid}": {
+            "get": {
+                "summary": "Returns one Entity from the table",
+                "tags": [
+                    "ipdb"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ipdbresp"
+                                },
+                                "examples": {
+                                    "default": {
+                                        "value": {
+                                            "partitionKey": "cloudflare",
+                                            "rowKey": "0819b54f-bca8-46a4-a838-d6301480f665",
+                                            "timestamp": "2022-04-07T12:18:38.1162658Z",
+                                            "ip": "162.158.0.0/15",
+                                            "description": "cloudflare ips"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "summary": "Update one Entity in the collection (Replace)",
+                "security": [
+                    {
+                        "FunctionKeyAuth": []
+                    }
+                ],
+                "tags": [
+                    "ipdb"
+                ],
+                "parameters": [
+                    {
+                        "name": "collection",
+                        "required": true,
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "uuid",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ipdbpostbody"
+                            },
+                            "examples": {
+                                "default": {
+                                    "value": {
+                                        "ip": "1.0.0.1",
+                                        "description": "Cloudflare DNS"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ipdbchangeresp"
+                                },
+                                "examples": {
+                                    "default": {
+                                        "value": {
+                                            "partitionKey": "cloudflare",
+                                            "rowKey": "0819b54f-bca8-46a4-a838-d6301480f665",
+                                            "ip": "162.158.0.0/15",
+                                            "description": "cloudflare ips"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Entity not found",
+                        "content": {
+                            "application/json": {
+                                "examples": {
+                                    "default": {
+                                        "value": {
+                                            "errorCode": "1337",
+                                            "message": "Entity not found"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Delete one Entity in the collection",
+                "security": [
+                    {
+                        "FunctionKeyAuth": []
+                    }
+                ],
+                "tags": [
+                    "ipdb"
+                ],
+                "parameters": [
+                    {
+                        "name": "collection",
+                        "required": true,
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "uuid",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ipdbdeleteresp"
+                                },
+                                "examples": {
+                                    "default": {
+                                        "value": {
+                                            "partitionKey": "cloudflare",
+                                            "rowKey": "0819b54f-bca8-46a4-a838-d6301480f665",
+                                            "ip": "162.158.0.0/15",
+                                            "description": "cloudflare ips"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Entity not found",
+                        "content": {
+                            "application/json": {
+                                "examples": {
+                                    "default": {
+                                        "value": {
+                                            "errorCode": "1337",
+                                            "message": "Entity not found"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/search": {
+            "get": {
+                "summary": "Searches for an IP address or CIDR network in all collections",
+                "security": [
+                    {
+                        "FunctionKeyAuth": []
+                    }
+                ],
+                "tags": [
+                    "ipdb"
+                ],
+                "parameters": [
+                    {
+                        "name": "q",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "examples": {
+                            "ip": {
+                                "value": "1.1.1.1"
+                            },
+                            "cidr": {
+                                "value": "162.158.0.0/15"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ipdbresp"
+                                },
+                                "examples": {
+                                    "default": {
+                                        "value": {
+                                            "partitionKey": "cloudflare",
+                                            "rowKey": "0819b54f-bca8-46a4-a838-d6301480f665",
+                                            "timestamp": "2022-04-07T12:18:38.1162658Z",
+                                            "ip": "162.158.0.0/15",
+                                            "description": "cloudflare ips"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/health": {
+            "get": {
+                "summary": "Checks Function and Table functionality",
+                "tags": [
+                    "ipdb"
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No Content"
+                    },
+                    "400": {
+                        "description": "Health Check failed"
+                    }
+                }
+            }
+        },
+        "/ipfeed/checkpoint": {
+            "get": {
+                "summary": "Returns a Checkpoint Generic Datacenter Object",
+                "tags": [
+                    "ipfeed"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ipfeedchkpresp"
+                                },
+                                "examples": {
+                                    "default": {
+                                        "value": {
+                                            "version": "1.0",
+                                            "description": "IPDB IP feed",
+                                            "objects": [
+                                                {
+                                                    "name": "cloudflare",
+                                                    "id": "d00f05c1-8a74-5570-a23d-68e85c145abd",
+                                                    "description": "cloudflare IP feed",
+                                                    "ranges": [
+                                                        "162.158.0.0/15",
+                                                        "197.234.240.0/22",
+                                                        "131.0.72.0/22",
+                                                        "141.101.64.0/18"
+                                                    ]
+                                                },
+                                                {
+                                                    "name": "zscaler",
+                                                    "id": "a546bafe-0b17-58a8-9524-8a6a54baf6cc",
+                                                    "description": "zscaler IP feed",
+                                                    "ranges": [
+                                                        "165.225.12.0/23",
+                                                        "196.23.154.64/27",
+                                                        "104.129.193.65",
+                                                        "104.129.197.103",
+                                                        "147.161.176.0/23",
+                                                        "213.52.102.0/24"
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Entity not found",
+                        "content": {
+                            "application/json": {
+                                "examples": {
+                                    "default": {
+                                        "value": {
+                                            "errorCode": "1337",
+                                            "message": "Entity not found"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/ipfeed/fortigate/": {
+            "get": {
+                "summary": "Returns all IP addresses in Fortigate Threat feed format",
+                "tags": [
+                    "ipfeed"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "text/plain": {
+                                "examples": {
+                                    "default": {
+                                        "value": "162.158.0.0/15\n197.234.240.0/22\n1.1.1.1\n141.101.64.0/18\n8.8.8.8\n103.31.4.0/22\n103.21.244.0/22\n190.93.240.0/20"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Entity not found",
+                        "content": {
+                            "application/json": {
+                                "examples": {
+                                    "default": {
+                                        "value": {
+                                            "errorCode": "1337",
+                                            "message": "Entity not found"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/ipfeed/fortigate/{collection}": {
+            "get": {
+                "summary": "Returns IP addresses (of a collection) in Fortigate Threat feed format",
+                "tags": [
+                    "ipfeed"
+                ],
+                "parameters": [
+                    {
+                        "name": "collection",
+                        "required": true,
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "text/plain": {
+                                "examples": {
+                                    "default": {
+                                        "value": "162.158.0.0/15\n197.234.240.0/22\n1.1.1.1\n141.101.64.0/18\n8.8.8.8\n103.31.4.0/22\n103.21.244.0/22\n190.93.240.0/20"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Entity not found",
+                        "content": {
+                            "application/json": {
+                                "examples": {
+                                    "default": {
+                                        "value": {
+                                            "errorCode": "1337",
+                                            "message": "Entity not found"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "ipdbresp": {
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "partitionKey": {
+                            "type": "string"
+                        },
+                        "rowKey": {
+                            "type": "string",
+                            "format": "uuid"
+                        },
+                        "timestamp": {
+                            "type": "string",
+                            "format": "date-time"
+                        },
+                        "ip": {
+                            "type": "string",
+                            "format": "cidr"
+                        },
+                        "description": {
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "ipdbchangeresp": {
+                "type": "object",
+                "properties": {
+                    "partitionKey": {
+                        "type": "string"
+                    },
+                    "rowKey": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "ip": {
+                        "type": "string",
+                        "format": "cidr"
+                    },
+                    "description": {
+                        "type": "string"
+                    }
+                }
+            },
+            "ipdbdeleteresp": {
+                "type": "object",
+                "properties": {
+                    "partitionKey": {
+                        "type": "string"
+                    },
+                    "rowKey": {
+                        "type": "string",
+                        "format": "uuid"
+                    }
+                }
+            },
+            "ipdbpostbody": {
+                "type": "object",
+                "properties": {
+                    "partitionKey": {
+                        "type": "string"
+                    },
+                    "rowKey": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "ip": {
+                        "type": "string",
+                        "format": "cidr"
+                    },
+                    "description": {
+                        "type": "string"
+                    }
+                }
+            },
+            "ipfeedchkpresp": {
+                "type": "object",
+                "properties": {
+                    "version": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "objects": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "name": {
+                                    "type": "string"
+                                },
+                                "id": {
+                                    "type": "string",
+                                    "format": "uuid"
+                                },
+                                "description": {
+                                    "type": "string"
+                                },
+                                "ranges": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string",
+                                        "format": "cidr"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "securitySchemes": {
+            "FunctionKeyAuth": {
+                "type": "apiKey",
+                "in": "header",
+                "name": "X-Functions-Key"
+            }
+        }
+    }
+}
